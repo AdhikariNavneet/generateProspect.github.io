@@ -37,83 +37,147 @@
 <!--  NOTE: Please add the following <FORM> element to your page.             -->
 <!--  ----------------------------------------------------------------------  -->
 
-<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<style>
+  /* Add your custom CSS styles here */
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
 
-<input type=hidden name="oid" value="00D1s0000000WLu">
-<input type=hidden name="retURL" value="http://generateProstects">
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="navneet.adhikari@nagarro.com">                                   -->
-<!--  ----------------------------------------------------------------------  -->
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-Booking Date:<span class="dateInput dateOnlyInput"><input  id="00N1s000002eTFX" name="00N1s000002eTFX" size="12" type="text" /></span><br>
+  input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+  }
 
-Floor:<input  id="00N1s000002eTFc" maxlength="10" name="00N1s000002eTFc" size="20" type="text" /><br>
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
 
-Unit:<input  id="00N1s000002eTFh" name="00N1s000002eTFh" size="20" type="text" /><br>
+<div class="form-container">
+  <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
-Flat No:<input  id="00N1s000002eTFm" maxlength="10" name="00N1s000002eTFm" size="20" type="text" /><br>
+    <input type="hidden" name="oid" value="00D1s0000000WLu">
+    <input type="hidden" name="retURL" value="http://generateProstects">
 
-Configuration:<select  id="00N1s000002eTFr" name="00N1s000002eTFr" title="Configuration"><option value="">--None--</option><option value="3 BHK + Balcony">3 BHK + Balcony</option>
-<option value="3 BHK">3 BHK</option>
-<option value="2 BHK">2 BHK</option>
-<option value="2 BHK + Balcony">2 BHK + Balcony</option>
-</select><br>
+    <!-- Booking Information -->
+    <label for="booking_date">Booking Date</label>
+    <input id="booking_date" name="00N1s000002eTFX" size="12" type="text" placeholder="YYYY-MM-DD">
 
-Carpet Area ( Sqft):<input  id="00N1s000002eTFw" name="00N1s000002eTFw" size="20" type="text" /><br>
+    <label for="floor">Floor</label>
+    <input id="floor" name="00N1s000002eTFc" maxlength="10" type="text" placeholder="Floor number">
 
-Car Park:<input  id="00N1s000002eTG1" name="00N1s000002eTG1" size="20" type="text" /><br>
+    <label for="unit">Unit</label>
+    <input id="unit" name="00N1s000002eTFh" size="20" type="text" placeholder="Unit number">
 
-<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+    <label for="flat_no">Flat No</label>
+    <input id="flat_no" name="00N1s000002eTFm" maxlength="10" type="text" placeholder="Flat number">
 
-<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+    <label for="configuration">Configuration</label>
+    <select id="configuration" name="00N1s000002eTFr" title="Configuration">
+      <option value="">--None--</option>
+      <option value="3 BHK + Balcony">3 BHK + Balcony</option>
+      <option value="3 BHK">3 BHK</option>
+      <option value="2 BHK">2 BHK</option>
+      <option value="2 BHK + Balcony">2 BHK + Balcony</option>
+    </select>
 
-Co-Applicant Name:<input  id="00N1s000002eTFx" maxlength="100" name="00N1s000002eTFx" size="20" type="text" /><br>
+    <label for="carpet_area">Carpet Area (Sqft)</label>
+    <input id="carpet_area" name="00N1s000002eTFw" size="20" type="text" placeholder="Carpet area in square feet">
 
-Residential:<input  id="00N1s000002eTG6" maxlength="50" name="00N1s000002eTG6" size="20" type="text" /><br>
+    <label for="car_park">Car Park</label>
+    <input id="car_park" name="00N1s000002eTG1" size="20" type="text" placeholder="Car park number">
 
-Employment Type:<select  id="00N1s000002eTGG" name="00N1s000002eTGG" title="Employment Type"><option value="">--None--</option><option value="Salaried">Salaried</option>
-<option value="Professional">Professional</option>
-<option value="Home Maker">Home Maker</option>
-<option value="Business">Business</option>
-<option value="Self Employed">Self Employed</option>
-<option value="Retired">Retired</option>
-</select><br>
+    <!-- Applicant Information -->
+    <label for="first_name">First Name</label>
+    <input id="first_name" maxlength="40" name="first_name" size="20" type="text" placeholder="First name">
 
-<label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+    <label for="last_name">Last Name</label>
+    <input id="last_name" maxlength="80" name="last_name" size="20" type="text" placeholder="Last name">
 
-Company Location:<input  id="00N1s000002eTLu" maxlength="200" name="00N1s000002eTLu" size="20" type="text" /><br>
+    <label for="co_applicant_name">Co-Applicant Name</label>
+    <input id="co_applicant_name" maxlength="100" name="00N1s000002eTFx" size="20" type="text" placeholder="Co-Applicant name">
 
-<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+    <label for="residential">Residential</label>
+    <input id="residential" maxlength="50" name="00N1s000002eTG6" size="20" type="text" placeholder="Residential address">
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    <!-- Employment Information -->
+    <label for="employment_type">Employment Type</label>
+    <select id="employment_type" name="00N1s000002eTGG" title="Employment Type">
+      <option value="">--None--</option>
+      <option value="Salaried">Salaried</option>
+      <option value="Professional">Professional</option>
+      <option value="Home Maker">Home Maker</option>
+      <option value="Business">Business</option>
+      <option value="Self Employed">Self Employed</option>
+      <option value="Retired">Retired</option>
+    </select>
 
-Residence Status:<select  id="00N1s000002eTLz" name="00N1s000002eTLz" title="Residence Status"><option value="">--None--</option><option value="Resident">Resident</option>
-<option value="Non Resident">Non Resident</option>
-</select><br>
+    <label for="company">Company</label>
+    <input id="company" maxlength="40" name="company" size="20" type="text" placeholder="Company name">
 
-Agreement Value:<input  id="00N1s000002eTM4" name="00N1s000002eTM4" size="20" type="text" /><br>
+    <label for="company_location">Company Location</label>
+    <input id="company_location" maxlength="200" name="00N1s000002eTLu" size="20" type="text" placeholder="Company location">
 
-Opted For Loan:<input  id="00N1s000002eTME" name="00N1s000002eTME" type="checkbox" value="1" /><br>
+    <!-- Contact Information -->
+    <label for="phone">Phone</label>
+    <input id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="Phone number">
 
-Units Sold/Not Sold:<select  id="00N1s000002eTMJ" name="00N1s000002eTMJ" title="Units Sold/Not Sold"><option value="">--None--</option><option value="Sold">Sold</option>
-<option value="Not Sold">Not Sold</option>
-</select><br>
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" size="20" type="text" placeholder="Email address">
 
-Lender Name:<select  id="00N1s000002eUVg" name="00N1s000002eUVg" title="Lender Name"><option value="">--None--</option><option value="SBI">SBI</option>
-<option value="ICICI">ICICI</option>
-<option value="HDFC">HDFC</option>
-<option value="LIC">LIC</option>
-<option value="PNB">PNB</option>
-</select><br>
+    <label for="residence_status">Residence Status</label>
+    <select id="residence_status" name="00N1s000002eTLz" title="Residence Status">
+      <option value="">--None--</option>
+      <option value="Resident">Resident</option>
+      <option value="Non Resident">Non Resident</option>
+    </select>
 
-<input type="submit" name="submit">
+    <!-- Additional Information -->
+    <label for="agreement_value">Agreement Value</label>
+    <input id="agreement_value" name="00N1s000002eTM4" size="20" type="text" placeholder="Agreement value">
 
-</form>
+    <label for="opted_for_loan">Opted For Loan</label>
+    <input id="opted_for_loan" name="00N1s000002eTME" type="checkbox" value="1">
+
+    <label for="units_sold">Units Sold/Not Sold</label>
+    <select id="units_sold" name="00N1s000002eTMJ" title="Units Sold/Not Sold">
+      <option value="">--None--</option>
+      <option value="Sold">Sold</option>
+      <option value="Not Sold">Not Sold</option>
+    </select>
+
+    <label for="lender_name">Lender Name</label>
+    <select id="lender_name" name="00N1s000002eUVg" title="Lender Name">
+      <option value="">--None--</option>
+      <option value="SBI">SBI</option>
+      <option value="ICICI">ICICI</option>
+      <option value="HDFC">HDFC</option>
+      <option value="LIC">LIC</option>
+      <option value="PNB">PNB</option>
+    </select>
+	    <input type="submit" name="submit">
+
+  </form>
+</div>
 
         </section>
     </main>
